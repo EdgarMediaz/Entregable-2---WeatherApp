@@ -2,12 +2,22 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: 'Arima', cursive;
 }
 
 .App {
   height: 100vh;
   width: 100vw;
-  background-image: url(./background.gif);
+  background-image: url(./assets/background.gif);
+  background-size: cover;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.App-hot {
+  height: 100vh;
+  width: 100vw;
+  background-image: url(./assets/sun.gif);
   background-size: cover;
   display: flex;
   align-items: center;
@@ -17,26 +27,141 @@
 .card {
   width: min(70%, 500px);
   background-color: rgba(255, 255, 255, 0.6);
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  /* flex-direction: column; */
   align-items: center;
-  justify-content: center;
+  /* justify-content: center; */
   font-size: calc(10px + 2vmin);
   color: black;
   box-shadow: 2px 2px 10px rgba(0, 0, 0, .3);
   border-radius: 1em;
 }
 
+.title {
+  grid-column: 1/3;
+  text-align: center;
+}
+
+img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.location {
+  grid-column: 1/3;
+  text-align: center;
+}
+
+.weather-values {
+  grid-column: 1/2;
+  text-align: center;
+  font-size: .8rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.max-min {
+  text-align: center;
+  font-size: 1rem;
+  display: flex;
+  flex-direction: column;
+}
+
 button {
   margin: 2rem;
   padding: 1em;
   border-radius: 1em;
+  cursor: pointer;
+  grid-column: 1/3;
 }
 
 h1 {
-  font-size: 1em;
+  font-size: .7em;
   padding: 0;
   margin-bottom: 1rem;
-  border: 1px solid black;
+  /* border: 1px solid black; */
   border-radius: 5px;
+}
+p {
+  font-size: .7em;
+}
+
+/*---- SearchBar ----*/
+
+.search-bar {
+  grid-column: 1/3;
+  margin: 0 2rem;
+  background-color: rgba(255, 255, 255, 0.5);
+}
+
+/* Loader... */
+
+.lds-grid {
+  display: inline-block;
+  position: relative;
+  width: 80px;
+  height: 80px;
+}
+.lds-grid div {
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: black;
+  animation: lds-grid 1.2s linear infinite;
+}
+.lds-grid div:nth-child(1) {
+  top: 8px;
+  left: 8px;
+  animation-delay: 0s;
+}
+.lds-grid div:nth-child(2) {
+  top: 8px;
+  left: 32px;
+  animation-delay: -0.4s;
+}
+.lds-grid div:nth-child(3) {
+  top: 8px;
+  left: 56px;
+  animation-delay: -0.8s;
+}
+.lds-grid div:nth-child(4) {
+  top: 32px;
+  left: 8px;
+  animation-delay: -0.4s;
+}
+.lds-grid div:nth-child(5) {
+  top: 32px;
+  left: 32px;
+  animation-delay: -0.8s;
+}
+.lds-grid div:nth-child(6) {
+  top: 32px;
+  left: 56px;
+  animation-delay: -1.2s;
+}
+.lds-grid div:nth-child(7) {
+  top: 56px;
+  left: 8px;
+  animation-delay: -0.8s;
+}
+.lds-grid div:nth-child(8) {
+  top: 56px;
+  left: 32px;
+  animation-delay: -1.2s;
+}
+.lds-grid div:nth-child(9) {
+  top: 56px;
+  left: 56px;
+  animation-delay: -1.6s;
+}
+@keyframes lds-grid {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
 }
